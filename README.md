@@ -20,6 +20,9 @@
 - [💪 Motivation](#-motivation)
 - [🕹️ Features](#-features)
 - [⛰️ Challenges](#️-challenges)
+  - [1. Phaser 3 프레임워크 채택 이유](#1-phaser3-프레임워크-채택-이유)
+  - [2. 무한 맵 구현하기](#2-무한-맵-구현하기)
+  - [3. 몬스터 스폰 위치 정하기](#3-몬스터-스폰-위치-정하기)
 - [📚 What I learned](#-what-i-learned)
 - [⏰ Project timeline](#-project-timeline)
 
