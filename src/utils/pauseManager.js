@@ -65,8 +65,9 @@ function createPauseText(scene, type) {
       config.width / 2,
       config.height / 2 - 150,
       "pixelFont",
-      PAUSE_TEXT_BY_TYPE[type].text,
+      [PAUSE_TEXT_BY_TYPE[type].text, "Press ESC to continue"],
       PAUSE_TEXT_BY_TYPE[type].fontSize,
+      1,
     )
     .setOrigin(0.5)
     .setDepth(120)
