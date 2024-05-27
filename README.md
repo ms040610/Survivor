@@ -19,7 +19,7 @@
 - [🙋🏻‍♂️ Introduction](#️-introduction)
 - [💪 Motivation](#-motivation)
 - [🔍 Proof Of Concept](#-proof-of-concept)
-  - [1. 적절한 게임 제작 툴 찾기](#1-적절한-게임-플랫폼-찾기)
+  - [1. 적절한 게임 제작 툴 찾기](#1-적절한-게임-툴-찾기)
   - [2. 게임 플랫폼으로서의 웹의 장점과 단점](#2-게임-플랫폼으로서의-웹의-장점과-단점)
 - [🕹️ Features](#-features)
   - [1. 플레이 방법](#1-플레이-방법)
