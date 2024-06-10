@@ -10,6 +10,20 @@ export default class MainScene extends Phaser.Scene {
   }
 
   create() {
+    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+      this.add
+        .bitmapText(
+          config.width / 2,
+          150,
+          "pixelFont",
+          "MOBILE DEVICE NOT SUPPORTED",
+          20,
+        )
+        .setOrigin(0.5);
+
+      return;
+    }
+
     setBackground(this, "main");
 
     this.add
