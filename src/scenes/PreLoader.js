@@ -15,7 +15,7 @@ import playerImg from "/assets/spritesheets/player.png";
 import idleImg from "/assets/spritesheets/idle.png";
 import expUpImg from "/assets/spritesheets/expUp.png";
 import itemsImg from "/assets/spritesheets/items.png";
-import mobImg1 from "/assets/spritesheets/고블린.png";
+import mobImg1 from "/assets/spritesheets/goblin.png";
 import mobImg2 from "/assets/spritesheets/mob2.png";
 import mobImg3 from "/assets/spritesheets/mob3.png";
 import mobImg4 from "/assets/spritesheets/mob4.png";
@@ -47,7 +47,7 @@ export default class PreLoader extends Phaser.Scene {
       frameHeight: 39,
     });
 
-    this.load.spritesheet("고블린", mobImg1, {
+    this.load.spritesheet("goblin", mobImg1, {
       frameWidth: 64,
       frameHeight: 64,
     });
@@ -153,7 +153,7 @@ export default class PreLoader extends Phaser.Scene {
 
     this.anims.create({
       key: "mob1Run",
-      frames: this.anims.generateFrameNumbers("고블린"),
+      frames: this.anims.generateFrameNumbers("goblin"),
       frameRate: 12,
       repeat: -1,
     });
