@@ -163,6 +163,14 @@ export default class PlayingScene extends Phaser.Scene {
 
     this.input.keyboard.on("keydown-A", () => {
       this.m_player.play("playerAttack", true);
+      if (!this.m_player.m_isAttacking) {
+        this.m_player.play("playerAttack");
+        this.m_player.startCharging();
+      }
+    });
+
+    this.input.keyboard.on("keyup-A", () => {
+      this.m_player.releaseCharge();
     });
 
     this.time.addEvent({

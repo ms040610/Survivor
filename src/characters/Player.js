@@ -4,6 +4,28 @@ import HpBar from "../ui/HpBar";
 import { loseGame } from "../utils/sceneManager";
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
+  startCharging() {
+    if (!this.m_isCharging) {
+      this.m_isCharging = true;
+      this.m_chargeStartTime = this.scene.time.now;
+
+      this.setTexture("charge");
+    }
+  }
+
+  releaseCharge() {
+    if (this.m_isCharging) {
+      this.m_isCharging = false;
+      const chargeTime = this.scene.time.now - this.m_chargeStartTime;
+
+      if (chargeTime >= 500) {
+        this.play("playerAttack", true, 4);
+      }
+
+      this.m_chargeStarTime = 0;
+    }
+  }
+
   constructor(scene) {
     super(scene, config.width / 2, config.height / 2, "player");
 
@@ -13,6 +35,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.scale = 1.3;
     this.m_moving = false;
     this.m_canBeAttacked = true;
+    this.m_isCharging = false;
+    this.m_chargeStartTime = 0;
     this.m_hpBar = new HpBar(scene, this, 100);
     this.setDepth(20);
     this.setBodySize(30, 50);

@@ -1,6 +1,10 @@
 import * as Phaser from "phaser";
 
 const EXP_PROPERTY = {
+  goblin: {
+    exp: 10,
+    color: "green",
+  },
   mob1: {
     exp: 10,
     color: "green",

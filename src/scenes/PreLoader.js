@@ -5,6 +5,8 @@ import fontXml from "/assets/font/font.xml?url";
 
 import background from "/assets/images/background.png";
 import main from "/assets/images/main.png";
+import hpbackImg from "/assets/images/hpback.png";
+import hpforeImg from "/assets/images/hpfore.png";
 
 import arrowImg from "/assets/images/arrow.png";
 import shieldImg from "/assets/images/shield.png";
@@ -25,6 +27,7 @@ import whipImg from "/assets/spritesheets/whip.png";
 import lightningImg from "/assets/spritesheets/lightning.png";
 import fireballImg from "/assets/spritesheets/fireball.png";
 import attackImg from "/assets/spritesheets/attack.png";
+import chargeImg from "/assets/spritesheets/charge.png";
 
 export default class PreLoader extends Phaser.Scene {
   constructor() {
@@ -37,6 +40,9 @@ export default class PreLoader extends Phaser.Scene {
     this.load.image("arrow", arrowImg);
     this.load.image("shield", shieldImg);
     this.load.image("sword", swordImg);
+
+    this.load.image("hpBack", hpbackImg);
+    this.load.image("hpFore", hpforeImg);
 
     this.load.spritesheet("player", playerImg, {
       frameWidth: 126,
@@ -100,6 +106,10 @@ export default class PreLoader extends Phaser.Scene {
       frameWidth: 126,
       frameHeight: 39,
     });
+    this.load.spritesheet("charge", chargeImg, {
+      frameWidth: 126,
+      frameHeight: 39,
+    });
 
     this.load.bitmapFont("pixelFont", fontPng, fontXml);
   }
@@ -126,6 +136,12 @@ export default class PreLoader extends Phaser.Scene {
     this.anims.create({
       key: "playerAttack",
       frames: this.anims.generateFrameNumbers("attack", { start: 0, end: 3 }),
+      frameRate: 10,
+      repeat: 0,
+    });
+    this.anims.create({
+      key: "playerCharge",
+      frames: this.anims.generateFrameNumbers("charge", { start: 0, end: 3 }),
       frameRate: 10,
       repeat: 0,
     });
