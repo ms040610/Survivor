@@ -71,6 +71,9 @@ export default class PlayingScene extends Phaser.Scene {
           case "mob5":
             this.m_player.hitByMob(33);
             break;
+          case "mob6":
+            this.m_player.hitByMob(40);
+            break;
           case "mobBoss":
             this.m_player.hitByMob(50);
             break;

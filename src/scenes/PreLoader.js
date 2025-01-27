@@ -12,6 +12,7 @@ import swordImg from "/assets/images/sword.png";
 
 import explosionImg from "/assets/spritesheets/explosion.png";
 import playerImg from "/assets/spritesheets/player.png";
+import idleImg from "/assets/spritesheets/idle.png";
 import expUpImg from "/assets/spritesheets/expUp.png";
 import itemsImg from "/assets/spritesheets/items.png";
 import mobImg1 from "/assets/spritesheets/mob1.png";
@@ -23,6 +24,7 @@ import mobImgBoss from "/assets/spritesheets/mobBoss.png";
 import whipImg from "/assets/spritesheets/whip.png";
 import lightningImg from "/assets/spritesheets/lightning.png";
 import fireballImg from "/assets/spritesheets/fireball.png";
+import attackImg from "/assets/spritesheets/attack.png";
 
 export default class PreLoader extends Phaser.Scene {
   constructor() {
@@ -37,8 +39,12 @@ export default class PreLoader extends Phaser.Scene {
     this.load.image("sword", swordImg);
 
     this.load.spritesheet("player", playerImg, {
-      frameWidth: 80,
-      frameHeight: 80,
+      frameWidth: 126,
+      frameHeight: 39,
+    });
+    this.load.spritesheet("idle", idleImg, {
+      frameWidth: 126,
+      frameHeight: 39,
     });
 
     this.load.spritesheet("mob1", mobImg1, {
@@ -90,6 +96,10 @@ export default class PreLoader extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 16,
     });
+    this.load.spritesheet("attack", attackImg, {
+      frameWidth: 126, // 스프라이트시트의 프레임 너비
+      frameHeight: 39, // 스프라이트시트의 프레임 높이
+    });
 
     this.load.bitmapFont("pixelFont", fontPng, fontXml);
   }
@@ -106,12 +116,18 @@ export default class PreLoader extends Phaser.Scene {
     });
     this.anims.create({
       key: "playerIdle",
-      frames: this.anims.generateFrameNumbers("player", {
+      frames: this.anims.generateFrameNumbers("idle", {
         start: 0,
-        end: 0,
+        end: 4,
       }),
-      frameRate: 1,
-      repeat: 0,
+      frameRate: 5,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: "playerAttack",
+      frames: this.anims.generateFrameNumbers("attack", { start: 0, end: 3 }), // attack 스프라이트시트 사용
+      frameRate: 10,
+      repeat: 0, // 한 번만 재생
     });
 
     this.anims.create({

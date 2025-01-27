@@ -27,13 +27,13 @@ export default class MainScene extends Phaser.Scene {
     setBackground(this, "main");
 
     this.add
-      .bitmapText(config.width / 2, 150, "pixelFont", "SURVIVOR", 100)
+      .bitmapText(config.width / 2, 150, "pixelFont", "TEST", 100)
       .setOrigin(0.5);
 
     this.add
-      .sprite(config.width / 2, config.height / 2, "player")
+      .sprite(config.width / 2, config.height / 2, "idle")
       .setScale(3)
-      .play("playerRun");
+      .play("playerIdle");
 
     new Button(
       config.width / 2,
