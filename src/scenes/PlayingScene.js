@@ -32,10 +32,10 @@ export default class PlayingScene extends Phaser.Scene {
     this.cameras.main.startFollow(this.m_player);
 
     this.m_mobs = this.physics.add.group();
-    this.m_mobs.add(new Mob(this, 0, 0, "mob1", "mob1Run", 10, 0.9, 0.01));
+    this.m_mobs.add(new Mob(this, 0, 0, "고블린", "mob1Run", 10, 0.9, 0.01));
     this.m_mobEvents = [];
 
-    addMobEvent(this, 300, "mob1", "mob1Run", 10, 0.9, 0.01);
+    addMobEvent(this, 300, "고블린", "mob1Run", 10, 0.9, 0.01);
 
     createTime(this);
 
@@ -56,7 +56,7 @@ export default class PlayingScene extends Phaser.Scene {
       this.m_mobs,
       (player, mob) => {
         switch (mob.texture.key) {
-          case "mob1":
+          case "고블린":
             this.m_player.hitByMob(5);
             break;
           case "mob2":
@@ -191,7 +191,7 @@ export default class PlayingScene extends Phaser.Scene {
             break;
           case 120:
             removeAllMobEvent(this);
-            addMobEvent(this, 100, "mob1", "mob1Run", 10, 0.9, 0.01);
+            addMobEvent(this, 100, "고블린", "mob1Run", 10, 0.9, 0.01);
             addMobEvent(this, 100, "mob2", "mob2Run", 20, 0.8, 0.01);
             addMobEvent(this, 100, "mob3", "mob3Run", 30, 0.7, 0.01);
             addMobEvent(this, 100, "mob4", "mob4Run", 40, 0.6, 0.01);
