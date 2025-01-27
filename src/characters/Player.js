@@ -16,6 +16,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.m_hpBar = new HpBar(scene, this, 100);
     this.setDepth(20);
     this.setBodySize(30, 50);
+
+    this.on("animationcomplete", (animation) => {
+      if (animation.key === "playerAttack") {
+        this.m_isAttacking = false;
+      }
+    });
   }
 
   move(vector) {

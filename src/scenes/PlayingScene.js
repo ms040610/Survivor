@@ -28,6 +28,7 @@ export default class PlayingScene extends Phaser.Scene {
     setBackground(this, "background1");
 
     this.m_player = new Player(this);
+    this.m_player.play("playerIdle");
 
     this.cameras.main.startFollow(this.m_player);
 
@@ -159,6 +160,10 @@ export default class PlayingScene extends Phaser.Scene {
       },
       this,
     );
+
+    this.input.keyboard.on("keydown-A", () => {
+      this.m_player.play("playerAttack", true);
+    });
 
     this.time.addEvent({
       delay: 10000,
