@@ -73,7 +73,7 @@ export default class PreLoader extends Phaser.Scene {
       frameWidth: 64,
       frameHeight: 64,
     });
-    this.load.spritesheet("mobBoss", mobImgBoss, {
+    this.load.spritesheet("boss", mobImgBoss, {
       frameWidth: 160,
       frameHeight: 128,
     });

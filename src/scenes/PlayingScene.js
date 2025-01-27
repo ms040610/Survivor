@@ -33,10 +33,8 @@ export default class PlayingScene extends Phaser.Scene {
     this.cameras.main.startFollow(this.m_player);
 
     this.m_mobs = this.physics.add.group();
-    this.m_mobs.add(new Mob(this, 0, 0, "goblin", "mob1Run", 10, 0.9, 0.01));
+    this.m_mobs.add(new Mob(this, 0, 0, "boss", "bossRun", 100, 1.0, 0.5));
     this.m_mobEvents = [];
-
-    addMobEvent(this, 300, "goblin", "mob1Run", 10, 0.9, 0.01);
 
     createTime(this);
 
@@ -162,15 +160,16 @@ export default class PlayingScene extends Phaser.Scene {
     );
 
     this.input.keyboard.on("keydown-A", () => {
-      this.m_player.play("playerAttack", true);
-      if (!this.m_player.m_isAttacking) {
-        this.m_player.play("playerAttack");
+      if (!this.m_player.m_isAttacking && !this.m_player.m_isCharging) {
         this.m_player.startCharging();
       }
     });
 
     this.input.keyboard.on("keyup-A", () => {
-      this.m_player.releaseCharge();
+      if (this.m_player.m_isCharging) {
+        this.m_player.m_isAttacking = true;
+        this.m_player.releaseCharge();
+      }
     });
 
     this.time.addEvent({
